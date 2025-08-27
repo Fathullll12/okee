@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>For Wwa ❤️</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg1:#ffdde1; --bg2:#fad7d7; --accent:#ff6b9a; --glass: rgba(255,255,255,0.12);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial}
+    body{
+      background: radial-gradient(ellipse at 10% 10%, rgba(255,255,255,0.25), transparent 10%),
+                  linear-gradient(135deg,var(--bg1),var(--bg2));
+      display:flex;align-items:center;justify-content:center;padding:24px;
+      -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+    }
+
+    .card{
+      width:min(920px,96vw);background:linear-gradient(180deg, rgba(255,255,255,0.14), rgba(255,255,255,0.06));
+      border-radius:20px;padding:28px;box-shadow:0 12px 40px rgba(20,10,30,0.18);backdrop-filter: blur(6px);
+      position:relative;overflow:hidden;border:1px solid rgba(255,255,255,0.12)
+    }
+
+    header{display:flex;gap:18px;align-items:center}
+    .logo{width:84px;height:84px;border-radius:18px;background:linear-gradient(135deg,#fff2, #fff1);display:flex;align-items:center;justify-content:center;border:2px solid rgba(255,255,255,0.08)}
+    .logo h1{font-family:Pacifico;margin:0;color:var(--accent);font-size:26px}
+    h2{margin:0;font-weight:800;color:#fff;font-size:28px}
+    p.lead{margin:6px 0 0;color:rgba(255,255,255,0.92)}
+
+    .center{display:flex;gap:20px;align-items:center;margin-top:22px}
+    .left{flex:1}
+    .right{width:340px}
+
+    button.cta{appearance:none;border:0;padding:14px 20px;border-radius:12px;font-weight:700;cursor:pointer;background:linear-gradient(90deg,var(--accent),#ff4f7a);color:white;box-shadow:0 8px 20px rgba(255,90,130,0.18);font-size:18px}
+    button.cta:active{transform:translateY(1px)}
+
+    .note{font-size:13px;color:rgba(255,255,255,0.8);margin-top:10px}
+
+    /* area efek */
+    .stage{position:absolute;inset:0;pointer-events:none}
+
+    .floating{
+      position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);pointer-events:none;
+    }
+
+    /* pesan bubble */
+    .bubble{
+      position:fixed;left:50%;transform:translateX(-50%);bottom:28px;background:linear-gradient(180deg,rgba(255,255,255,0.95),#fff);padding:12px 18px;border-radius:999px;box-shadow:0 10px 30px rgba(0,0,0,0.18);font-weight:700;color:#222;z-index:80
+    }
+
+    /* floating hearts/phrases */
+    .heart{
+      position:absolute;padding:8px 12px;border-radius:14px;font-weight:800;color:white;white-space:nowrap;pointer-events:none;z-index:50;transform-origin:center center;
+      animation:rise 5s linear forwards;filter:drop-shadow(0 6px 18px rgba(0,0,0,0.18));
+    }
+
+    @keyframes rise{
+      0%{opacity:0;transform:translateY(0) scale(0.8) rotate(0deg)}
+      10%{opacity:1}
+      100%{opacity:0;transform:translateY(-110vh) scale(1.1) rotate(360deg)}
+    }
+
+    /* decorative bottom */
+    .footer-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:18px}
+    .pill{background:var(--glass);padding:8px 12px;border-radius:12px;border:1px solid rgba(255,255,255,0.06);color:#fff}
+
+    /* responsive */
+    @media (max-width:740px){
+      .right{display:none}
+      h2{font-size:22px}
+      header{gap:12px}
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="stage" id="stage"></div>
+
+    <header>
+      <div class="logo"><h1>W</h1></div>
+      <div>
+        <h2>Untuk Wwa — Kamu Spesial 💖</h2>
+        <p class="lead">Buka hati, tekan tombol, dan lihat pelukan kata-kata manis untukmu.</p>
+      </div>
+    </header>
+
+    <div class="center">
+      <div class="left">
+        <p style="color:rgba(255,255,255,0.92)">Hai sayang! Aku buat halaman kecil ini khusus untukmu. Tekan tombol di bawah untuk lihat pesan-pesan manis yang muncul bertebaran—biar harimu makin manis.</p>
+
+        <div style="margin-top:18px;display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+          <button class="cta" id="loveBtn">Tekan untuk Wwa ❤️</button>
+          <div style="display:flex;flex-direction:column">
+            <span class="note">Kontrol: Tekan berulang untuk lebih banyak pesan.</span>
+            <span class="note">Tekan tombol R untuk reset tampilan.</span>
+          </div>
+        </div>
+
+        <div class="footer-row">
+          <div class="pill">Dibuat khusus untukmu</div>
+          <div class="pill">Full-screen recommended</div>
+          <div class="pill">Bisa dibuka via IP (lihat petunjuk di bawah)</div>
+        </div>
+      </div>
+
+      <aside class="right">
+        <div style="background:linear-gradient(180deg,rgba(255,255,255,0.08),transparent);padding:14px;border-radius:12px">
+          <h3 style="margin:0 0 8px 0;color:#fff">Preview</h3>
+          <p style="margin:0;color:rgba(255,255,255,0.9)">Saat tombol ditekan, teks "i love u wwa" dan "wwaa cantik" akan berhamburan di layar sebagai hati berwarna. Semakin sering ditekan, semakin banyak muncul.</p>
+        </div>
+
+        <div style="margin-top:12px;padding:14px;border-radius:12px;background:rgba(255,255,255,0.04)">
+          <strong style="color:#fff">Tips:</strong>
+          <ul style="color:rgba(255,255,255,0.9);margin:8px 0 0 18px;padding:0">
+            <li>Fullscreen (F11) agar efek lebih dramatis</li>
+            <li>Tekan berulang untuk hujan kata-kata</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+
+    <div style="margin-top:18px;color:rgba(255,255,255,0.9);font-size:14px">
+      <strong>Petunjuk buka lewat IP:</strong>
+      <ol>
+        <li>Simpan file ini sebagai <code>love_for_wwa.html</code>.</li>
+        <li>Buka terminal di folder file lalu jalankan: <code>python -m http.server 8000</code></li>
+        <li>Cari alamat IP komputer (Windows: <code>ipconfig</code> atau mac/linux: <code>ip addr</code>), lalu di ponsel/komputer lain buka: <code>http://[IP-Anda]:8000/love_for_wwa.html</code>.</li>
+      </ol>
+    </div>
+
+    <div class="bubble" id="msgBubble" style="display:none">Terima kasih sudah menekan 💝</div>
+  </div>
+
+  <script>
+    const btn = document.getElementById('loveBtn');
+    const stage = document.getElementById('stage');
+    const bubble = document.getElementById('msgBubble');
+
+    // dua frasa yang diminta
+    const phrases = ["i love u wwa", "wwaa cantik"];
+
+    // warna palet untuk heart
+    const colors = ["#ff5d8f","#ff9fc3","#ff3b6f","#ffd1e3","#ff7aa2"];
+
+    // buat X elemen hati tiap klik (skala bergantung klik berturut)
+    let clickCount = 0;
+
+    function rand(min, max){ return Math.random()*(max-min)+min }
+
+    function createHeart(text){
+      const el = document.createElement('div');
+      el.className = 'heart';
+      el.textContent = text;
+      const size = Math.floor(rand(14,34));
+      el.style.fontSize = size + 'px';
+      el.style.left = rand(5,95) + '%';
+      el.style.bottom = rand(6, 18) + '%';
+      el.style.padding = Math.max(6, size/2) + 'px ' + Math.max(10, size) + 'px';
+      el.style.borderRadius = (size+18) + 'px';
+      el.style.background = colors[Math.floor(rand(0, colors.length))];
+      el.style.transform = `translateY(0) rotate(${Math.floor(rand(-20,20))}deg)`;
+      el.style.opacity = 0;
+      el.style.zIndex = 50 + Math.floor(rand(0,200));
+      // random duration & delay
+      const dur = rand(3.8,6.5);
+      el.style.animationDuration = dur + 's';
+      el.style.animationDelay = rand(0,0.4) + 's';
+      stage.appendChild(el);
+
+      // bersihkan setelah anim selesai
+      setTimeout(()=>{ el.remove(); }, (dur + 0.6)*1000);
+    }
+
+    function spawnMany(){
+      clickCount++;
+      const base = 8 + Math.min(60, clickCount*6);
+      // tampilkan bubble singkat
+      bubble.style.display = 'block';
+      bubble.textContent = ['sayang wwa banyak ❤️','Love you too 💕','Kamu gemeshh banget 😘'][Math.floor(Math.random()*3)];
+      setTimeout(()=> bubble.style.display='none',1200);
+
+      for(let i=0;i<base;i++){
+        const text = phrases[Math.floor(rand(0,phrases.length))];
+        // stagger creation sedikit
+        setTimeout(()=> createHeart(text), Math.random()*350);
+      }
+
+      // tambahkan konfeti miniature (opsional)
+      for(let j=0;j<14;j++){
+        setTimeout(()=>{
+          const tiny = document.createElement('div');
+          tiny.textContent = '❤';
+          tiny.style.position='absolute';
+          tiny.style.left = rand(2,98) + '%';
+          tiny.style.bottom = rand(2,20) + '%';
+          tiny.style.fontSize = Math.floor(rand(8,18))+'px';
+          tiny.style.opacity = 0.95;
+          tiny.style.transform = `translateY(0) rotate(${Math.floor(rand(0,360))}deg)`;
+          tiny.style.animation = `rise ${rand(2.6,4.6)}s linear forwards`;
+          stage.appendChild(tiny);
+          setTimeout(()=> tiny.remove(), 5200);
+        }, Math.random()*700);
+      }
+    }
+
+    btn.addEventListener('click', spawnMany);
+
+    // reset dengan R
+    window.addEventListener('keydown', (e)=>{
+      if(e.key === 'r' || e.key === 'R'){
+        // bersihkan stage
+        stage.innerHTML = '';
+        clickCount = 0;
+      }
+    });
+
+    // klik ruang kosong juga spawn
+    document.body.addEventListener('dblclick', spawnMany);
+
+    // saran: tekan tombol sekali otomatis muncul banyak supaya langsung impresif
+    // Uncomment baris berikut jika mau auto-play satu kali saat buka (disabled by default to avoid autoplay surprises)
+    // setTimeout(()=> btn.click(), 800);
+
+  </script>
+</body>
+</html>
